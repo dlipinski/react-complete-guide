@@ -17,16 +17,16 @@ class App extends Component {
     this.setState(
       {
         persons: [
-          { name: 'Max', age: 28 },
-          { name: event.target.value, age: 29 },
-          { name: 'Stephanie', age: 26 },
+          { id: 'qwe',name: 'Max', age: 28 },
+          { id: 'asd',name: event.target.value, age: 29 },
+          { id: 'zxc',name: 'Stephanie', age: 26 },
       ]
     } )
   }
 
   deletePersonHandler = (personIndex) => {
     //const persons = this.state.persons.slice();
-    const person = [...this.state.persons];
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
   }
@@ -54,7 +54,8 @@ class App extends Component {
             return <Person
             click={() => this.deletePersonHandler(index)}
             name={person.name}
-            age={person.age} />
+            age={person.age}
+            key={person.id} />
           })}
         </div>
       );
